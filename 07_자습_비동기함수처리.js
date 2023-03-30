@@ -6,6 +6,10 @@
         // (오류없으면) 실행이 되면 > Promise 의 첫 번째 매개변수인, resolve 함수 실행결과가 반환 
         // 오류나면 > Promise 의 두 번째 매개변수인, reject 함수 실행결과가 반환 
 
+        // 1. 뭔가를 실행하게 함. 
+        // 2. 실행을 '완료' 하면 > 그에 따라 펼쳐지는게 있고, ex) then, resolve
+        // 3. 실행을 '미완료' 하면 > 그에 따라, catrch, reject 의 일이 발생한다. 
+
 
     // [기능]
         // 비동기 처리를 가능하게 해주는 객체
@@ -31,7 +35,7 @@
                 // 그러면, 이 함수에서는 뭘 할거야? 
 
         try {
-            if (num > 10)   rej ({date : "숫자가 커서, 오류났어!"})
+            if (num > 10)   rej ({date : "숫자가 커서, 오류났어!"});
                 // [34 line 해석] : if 에 중괄호가 없으면, 바로 밑 코드만 실행됨! -> so, 그 밑으로는 안 넘어옴.
                 
             // num 초 기다렸다가 -> 실행
@@ -39,8 +43,7 @@
                 res(num);       // 실행되면 -> 매개변수를 num 으로 받는다. 
             }, num * 1000)      // 'num x 1000 밀리초' 만큼 실행되도록 기다린다. 
         } catch (error) {
-            rej(error)      // 현재 rej는 throw 와 동일한 기능?❓❓❓❓❓❓  
-                
+            rej(error);      // 현재 rej는 throw 와 동일한 기능?❓❓❓❓❓❓  
         }
     })
     }
@@ -59,9 +62,9 @@
         // '성공' 했을 때
         console.log(date)
 
-    }).catch(function(err) {
+    }).catch(function(error) {
         // '실패' 했을 때
-        console.log(err)
+        console.log(error)
     })
 
 

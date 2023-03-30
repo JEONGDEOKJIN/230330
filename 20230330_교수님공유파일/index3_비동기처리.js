@@ -23,13 +23,14 @@ function testPromise(num){
             setTimeout(function(){
                 res(num);
                 // res(num) 은 num 을 return 하는 함수? -> 응 맞아!!!!! 
-                ,ㅡ
+                
             },num * 1000);
         } catch (error) {
             rej(error);
         }
     })
 }
+
 
 testPromise(8).then(function(date){
     console.log(date)
@@ -45,6 +46,7 @@ testPromise(8).then(function(date){
     // 실패
     console.log(err);
 })
+
 
 // then이랑 catch를 안쓰면 
 
